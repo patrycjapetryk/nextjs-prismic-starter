@@ -6,7 +6,7 @@ export default async function Footer() {
   const settings = await client.getSingle('settings');
 
   return (
-    <footer className='flex flex-row-reverse w-full px-4 py-2'>
+    <footer className='flex w-full px-4 py-2 text-xs'>
       <Link href='/'>
         ©{new Date().getFullYear()} {settings.data.site_title}
       </Link>

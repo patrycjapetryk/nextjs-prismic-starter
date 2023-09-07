@@ -12,6 +12,9 @@ const config: Config = {
         body: ['var(--font-red-hat-mono)'],
         display: ['var(--font-chewy)'],
       },
+      fontSize: {
+        m: '0.8rem',
+      },
     },
   },
   plugins: [],

@@ -7,8 +7,8 @@ export default async function Header() {
   const settings = await client.getSingle('settings');
 
   return (
-    <header className='flex w-full '>
-      <Link className='px-4 py-2 uppercase' href='/'>
+    <header className='flex w-full justify-between text-sm'>
+      <Link className='px-4 py-2 uppercase text-m' href='/'>
         {settings.data.site_title}
       </Link>
       <nav className='px-4 py-2 '>
