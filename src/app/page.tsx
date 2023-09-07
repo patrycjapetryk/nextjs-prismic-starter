@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-center'>
+    <main>
       <h1 className='font-display text-xl'>Hello World!</h1>
     </main>
   );

@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import { Red_Hat_Mono, Chewy } from 'next/font/google';
 import { createClient } from '@/prismicio';
 
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
 export const redHatMono = Red_Hat_Mono({
   subsets: ['latin-ext'],
   weight: '500',
@@ -23,10 +26,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await client.getSingle('settings');
 
   return {
-    title: settings.data.site_title || 'Leszczewo 15',
-    description:
-      settings.data.site_description ||
-      'Oferujemy do wynajęcia dom na skraju lasu, na terenie Wigierskiego Parku Narodowego.',
+    title: settings.data.site_title || '',
+    description: settings.data.site_description || '',
     openGraph: {
       images: [settings.data.og_image.url || ''],
     },
@@ -36,7 +37,11 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='pl' className={`${redHatMono.variable} ${chewy.variable}`}>
-      <body className='font-body'>{children}</body>
+      <body className='font-body min-h-screen flex flex-col items-center justify-between'>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
