@@ -2,14 +2,18 @@ import { Metadata } from 'next';
 import { SliceZone } from '@prismicio/react';
 
 import { createClient } from '@/prismicio';
-// import { components } from '@/slices';
+import { components } from '@/slices';
 
 export default async function Home() {
   const client = createClient();
   const page = await client.getSingle('homepage');
 
-  return <h1 className='font-display text-xl'>{page.data.title}</h1>;
-  // return <SliceZone slices={page.data.slices} components={components} />;
+  return (
+    <main className='flex flex-col items-center'>
+      <h1 className='font-display text-xl'>{page.data.title}</h1>
+      <SliceZone slices={page.data.slices} components={components} />
+    </main>
+  );
 }
 
 export async function generateMetadata(): Promise<Metadata> {
